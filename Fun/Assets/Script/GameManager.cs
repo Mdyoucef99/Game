@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class TileBehaviour : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public Text scoretxt;
-    public GameObject tile;
-    public  int scoreint = 0;
+    
+    public int points=0;
+    [SerializeField] private Text scoreTx;
+    private int HighScore;
+
 
     // Start is called before the first frame update
     void Start()
@@ -17,20 +19,17 @@ public class TileBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
         
     }
 
 
-    public void Incrementor()
+    public void AddPoints()
     {
-        
-        Debug.Log("pressed!!");
-        Destroy(tile);
-      
-
-
-
+       
+        points += 1;
+        Debug.Log(points);
+        scoreTx.text = points.ToString();
     }
+
 
 }

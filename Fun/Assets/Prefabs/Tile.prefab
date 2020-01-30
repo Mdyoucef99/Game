@@ -141,5 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d34916ae7b41b4f8b954bdd3451d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: {fileID: 0}
-  tile: {fileID: 5567785899692328723}
+  points: 10
+  code: {fileID: 7593301503310333753, guid: 7b4df5c800b26a14e8d8b47e918d8636, type: 3}
