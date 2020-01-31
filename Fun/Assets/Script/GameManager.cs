@@ -20,16 +20,18 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+
     }
 
 
     public void AddPoints()
     {
-       
         points += 1;
         Debug.Log(points);
         scoreTx.text = points.ToString();
+
     }
+
 
 
 }
