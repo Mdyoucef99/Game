@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -270.7}
-  m_SizeDelta: {x: 89.6, y: 96.6}
+  m_AnchoredPosition: {x: 0, y: -109}
+  m_SizeDelta: {x: 79.2, y: 77.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7837438098531357049
 CanvasRenderer:
@@ -119,7 +119,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1566200158563195224}
-        m_MethodName: Incrementor
+        m_MethodName: BehaviourTile
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -141,5 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d34916ae7b41b4f8b954bdd3451d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 10
-  code: {fileID: 7593301503310333753, guid: 7b4df5c800b26a14e8d8b47e918d8636, type: 3}
+  code: {fileID: 1336758010245584941, guid: 36a92de59f0c91d4fa9ff15e9a586cbe, type: 3}
+  speed: 75

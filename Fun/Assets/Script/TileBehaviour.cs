@@ -5,7 +5,7 @@ using UnityEngine;
 public class TileBehaviour : MonoBehaviour
 {
    public  GameManager code;
-   [SerializeField] float speed;
+   [SerializeField] float speed=75;
     // Start is called before the first frame update
 
     void Start()
