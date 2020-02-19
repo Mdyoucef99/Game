@@ -6,10 +6,10 @@ public class GameManager : MonoBehaviour
 {
     private int HighScore;
     [SerializeField] int points=0;
-  public Text scoreTx;
+    public Text scoreTx;
     public Transform[] spawners;
     public GameObject tiles;
-
+    float spawnTime = 5.0f;
 
 
 
@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
      
-        
     }
 
      void Awake()
@@ -30,8 +29,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-      //  Invoke("Spawn", 3);//intantiate a all tiles after 3 seconds 
+        InvokeRepeating("Spawn", spawnTime, 10);
 
     }
 

@@ -142,4 +142,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   code: {fileID: 1336758010245584941, guid: 36a92de59f0c91d4fa9ff15e9a586cbe, type: 3}
-  speed: 75
+  speed: 300
