@@ -39,7 +39,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -78.8}
-  m_SizeDelta: {x: 79.2, y: 137.9}
+  m_SizeDelta: {x: 262.9, y: 421.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7837438098531357049
 CanvasRenderer:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   code: {fileID: 1336758010245584941, guid: 36a92de59f0c91d4fa9ff15e9a586cbe, type: 3}
-  speed: 600
+  speed: 2400
 --- !u!61 &-3412897217373902273
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5567785899692328723}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
