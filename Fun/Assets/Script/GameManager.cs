@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour
    
     void Update()
     {
-        
 
+        Spawn();
     }
 
 
@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
 
     private void Spawn()
     {
+
         int rand = Random.Range(0, 3);
 
         deltaTime = GetComponent<AudioSource>().time - lastTime;

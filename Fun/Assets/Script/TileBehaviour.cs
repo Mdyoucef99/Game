@@ -27,6 +27,17 @@ public class TileBehaviour : MonoBehaviour
         Debug.Log("destroyed self");
     }
 
-   
+    void OnCollisionEnter2d(Collision collision) {
+
+        if (collision.gameObject.CompareTag("DeathZone"))
+        {
+            Debug.Log("Deathzone entered");
+        }
+
+    }
+
+
+
+
 
 }
