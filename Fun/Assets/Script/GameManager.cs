@@ -9,41 +9,26 @@ public class GameManager : MonoBehaviour
     public Text scoreTx;
     public Transform[] spawners;
     public GameObject tiles;
-    float spawnTime = 5.0f;
+    
+
+    public float bpm;
+    private float lastTime, deltaTime, timer;
+
+    
+    // float i = 0;
 
 
-    float i = 0;
-
-
-
-
-    // Start is called before the first frame update
     void Start()
     {
+
      
     }
 
-     void Awake()
-    {
-      
 
-       // InvokeRepeating("Spawn", 3.0f, 3.0f);
-
-    }
-
-
-
-    // Update is called once per frame
+   
     void Update()
     {
-
-        if (Time.time > i)
-        {
-            i += 0.8f;
-            Spawn();
-
-        }
-
+        
 
     }
 
@@ -60,12 +45,23 @@ public class GameManager : MonoBehaviour
 
     private void Spawn()
     {
-        Instantiate(tiles, spawners[Random.Range(0, 3)]);
+        int rand = Random.Range(0, 3);
+
+        deltaTime = GetComponent<AudioSource>().time - lastTime;
+        timer += deltaTime;
+
+        if (timer >= (60f / bpm))
+        {
+
+            //Create the tile 
+            var x = Instantiate(tiles, spawners[rand]);
+            timer -= (60f / bpm);
+
+        }
+
+        lastTime = GetComponent<AudioSource>().time;
 
     }
-
-
-
 
 
 }
