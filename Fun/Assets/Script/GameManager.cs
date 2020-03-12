@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     float spawnTime = 5.0f;
 
 
+    float i = 0;
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +25,10 @@ public class GameManager : MonoBehaviour
 
      void Awake()
     {
-        Instantiate(tiles, spawners[Random.Range(0, 3)]);
+      
+
+       // InvokeRepeating("Spawn", 3.0f, 3.0f);
+
     }
 
 
@@ -29,7 +36,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        InvokeRepeating("Spawn", spawnTime, 10);
+
+        if (Time.time > i)
+        {
+            i += 0.8f;
+            Spawn();
+
+        }
+
 
     }
 
