@@ -24,7 +24,7 @@ public class TileBehaviour : MonoBehaviour
     {   
         code.AddPoints();
         Destroy(gameObject);
-        Debug.Log("destroyed self");
+       
     }
 
     void OnCollisionEnter2d(Collision collision) {
