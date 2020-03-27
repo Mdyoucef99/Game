@@ -5,6 +5,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
+     private enum Positions {left,middleleft, middleright, right }
+
+    public List<int> memo= new List<int>();
+
 
     private static GameManager _instance;
 
@@ -40,7 +44,6 @@ public class GameManager : MonoBehaviour
     
     }
 
-
     private void Awake()
     {
         _instance = this;
@@ -71,7 +74,8 @@ public class GameManager : MonoBehaviour
     private void Spawn()
     {
 
-        int rand = Random.Range(0, 3);
+        int rand = Random.Range(0, 4);
+        
 
         deltaTime = GetComponent<AudioSource>().time - lastTime;
         timer += deltaTime;
@@ -83,9 +87,29 @@ public class GameManager : MonoBehaviour
             var x = Instantiate(tiles, spawners[rand]);
             timer -= (60f / bpm);
 
+
+            memo.Add(rand);
+
+
+            foreach (int items in memo) {
+
+              // Debug.Log(items);
+
+                if ((int)Positions.middleleft == items) {
+
+                   Debug.Log("Found it ");
+
+                
+                }
+
+            }
+           
+            
         }
 
+
         lastTime = GetComponent<AudioSource>().time;
+
 
     }
 
