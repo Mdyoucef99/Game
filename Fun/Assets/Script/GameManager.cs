@@ -5,24 +5,20 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
-     private enum Positions {left,middleleft, middleright, right }
-
+    private enum Positions {left,middleleft, middleright, right }
     public List<int> memo= new List<int>();
-
-
     private static GameManager _instance;
-
-
     private int HighScore;
     [SerializeField] int points = 0;
     public Text scoreTx;
     public Transform[] spawners;
     public GameObject tiles;
-
-
     public float bpm;
     private float lastTime, deltaTime, timer;
 
+    int[] test2 = new int[4];
+
+   
 
     public static GameManager Instance 
     {
@@ -38,28 +34,29 @@ public class GameManager : MonoBehaviour
             }
             return _instance;
 
-        
         }
-    
     
     }
 
     private void Awake()
     {
         _instance = this;
+
     }
 
 
     void Start()
     {
-
         points = 0;
+     
+
      
     }
 
     void Update()
     {
         Spawn();
+
     }
 
     public void AddPoints()
@@ -73,47 +70,33 @@ public class GameManager : MonoBehaviour
 
     private void Spawn()
     {
-
+        ///ok so this work,  gotta change the tempo of the song 
         int rand = Random.Range(0, 4);
-        
 
         deltaTime = GetComponent<AudioSource>().time - lastTime;
         timer += deltaTime;
-
+        ///calculate the bpm of the song and generate tiles 
         if (timer >= (60f / bpm))
         {
-
             //Create the tile 
             var x = Instantiate(tiles, spawners[rand]);
             timer -= (60f / bpm);
 
-
-            memo.Add(rand);
-
-
-            foreach (int items in memo) {
-
-              // Debug.Log(items);
-
-                if ((int)Positions.middleleft == items) {
-
-                   Debug.Log("Found it ");
-
-                
-                }
-
-            }
-           
             
+
+            for (int i = 0; i < test2.Length; i++)
+            {
+                test2[i] = rand;
+                Debug.Log(test2[i]);
+            }
+
         }
 
-
+        ///instantiate tiles for as long as the song goes. 
         lastTime = GetComponent<AudioSource>().time;
-
+        
 
     }
-
-
-
+    
 
 }
