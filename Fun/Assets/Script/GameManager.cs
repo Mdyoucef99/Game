@@ -48,9 +48,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         points = 0;
-     
 
-     
     }
 
     void Update()
@@ -71,24 +69,27 @@ public class GameManager : MonoBehaviour
     private void Spawn()
     {
         ///ok so this work,  gotta change the tempo of the song 
-        int rand = Random.Range(0, 4);
+        
 
         deltaTime = GetComponent<AudioSource>().time - lastTime;
         timer += deltaTime;
         ///calculate the bpm of the song and generate tiles 
         if (timer >= (60f / bpm))
         {
+            int rand = Random.Range(0, 4);
             //Create the tile 
             var x = Instantiate(tiles, spawners[rand]);
             timer -= (60f / bpm);
 
-            
-
             for (int i = 0; i < test2.Length; i++)
             {
-                test2[i] = rand;
+                test2[i] = rand; 
                 Debug.Log(test2[i]);
+                rand = Random.Range(0, 4);
+
             }
+            
+
 
         }
 
