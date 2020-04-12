@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+
 public class GameManager : MonoBehaviour
 {
 
     private enum Positions {left,middleleft, middleright, right }
-    public List<int> memo= new List<int>();
     private static GameManager _instance;
     private int HighScore;
     [SerializeField] int points = 0;
@@ -38,6 +39,8 @@ public class GameManager : MonoBehaviour
     
     }
 
+
+
     private void Awake()
     {
         _instance = this;
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
         points = 0;
 
     }
@@ -69,8 +73,7 @@ public class GameManager : MonoBehaviour
     private void Spawn()
     {
         ///ok so this work,  gotta change the tempo of the song 
-        
-
+       
         deltaTime = GetComponent<AudioSource>().time - lastTime;
         timer += deltaTime;
         ///calculate the bpm of the song and generate tiles 
@@ -89,8 +92,6 @@ public class GameManager : MonoBehaviour
 
             }
             
-
-
         }
 
         ///instantiate tiles for as long as the song goes. 

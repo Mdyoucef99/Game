@@ -12,6 +12,7 @@ public class TileBehaviour : MonoBehaviour
     void Start()
     {
         
+
     }
 
     // Update is called once per frame
@@ -24,21 +25,12 @@ public class TileBehaviour : MonoBehaviour
     public void BehaviourTile()
     {   
         code.AddPoints();
+
+
         Destroy(gameObject);
        
     }
 
-    void OnCollisionEnter2d(Collision collision) {
-
-        if (collision.gameObject.CompareTag("DeathZone"))
-        {
-            Debug.Log("Deathzone entered");
-        }
-
-    }
-
-
-
-
+   
 
 }
