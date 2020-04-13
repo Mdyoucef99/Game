@@ -8,25 +8,20 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-
-    private enum Positions {left,middleleft, middleright, right }
+    public GameObject panelformemory;
     private static GameManager _instance;
     private int HighScore;
-    [SerializeField] int points = 0;
     public Text scoreTx;
     public Transform[] spawners;
     public GameObject tiles;
     public float bpm;
     private float lastTime, deltaTime, timer;
 
-    int[] test2 = new int[4];
-
     List<int> MyList = new List<int>();
+
+
     int answer = 0;
     int incrementor = 0;
-
-    public GameObject panelformemory;
-
 
     public static GameManager Instance 
     {
@@ -46,8 +41,6 @@ public class GameManager : MonoBehaviour
     
     }
 
-
-
     private void Awake()
     {
         _instance = this;
@@ -57,7 +50,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        points = 0;
+        
+        Debug.Log(incrementor);
 
     }
 
@@ -66,20 +60,12 @@ public class GameManager : MonoBehaviour
         Spawn();
     }
 
-    public void AddPoints()
-    {
-        points += 1;
-        Debug.Log(points);
-        scoreTx.text = points.ToString();
-
-    }
 
 
     private void Spawn()
     {
         ///ok so this work,  gotta change the tempo of the song 
         int rand = Random.Range(0, 4);
-        
         deltaTime = GetComponent<AudioSource>().time - lastTime;
         timer += deltaTime;
 
@@ -87,47 +73,37 @@ public class GameManager : MonoBehaviour
         if (timer >= (60f / bpm))
         {
             //Create the tile 
-
             MyList.Add(rand);
-
-            foreach (var item in MyList)
-            {
-              //Debug.Log("this is the list + "+  MyList.ElementAt(0));
-              //Debug.Log("this is the list + " + MyList.ElementAt(1));
-              //Debug.Log("this is the list + " + MyList.ElementAt(2));
-              //Debug.Log("this is the list + " + MyList.ElementAt(3));
-            }
-
 
             var x = Instantiate(tiles, spawners[rand]);
             timer -= (60f / bpm);
 
-            
-
-
         }
+
         ///instantiate tiles for as long as the song goes. 
         lastTime = GetComponent<AudioSource>().time;
 
+        if (GetComponent<AudioSource>().isPlaying == false) {
+
+            StopTime();
+
+        }
 
     }
 
 
     public void StopTime()
     {
-
-        
         panelformemory.SetActive(true);
         Time.timeScale = 0;
-
 
         if (incrementor == 4) {
 
             Time.timeScale = 1;
+
             Debug.Log("Game is finished ");
+
         }
-
-
 
     }
 
@@ -135,7 +111,7 @@ public class GameManager : MonoBehaviour
 
          answer = 0;
 
-        if (MyList.ElementAt(0) == answer)
+        if (MyList.ElementAt(incrementor) == answer)
         {
 
             Debug.Log("good answer ");
@@ -143,7 +119,7 @@ public class GameManager : MonoBehaviour
 
         }
 
-        else if (MyList.ElementAt(0) != answer)
+        else if (MyList.ElementAt(incrementor) != answer)
         {
 
             Debug.Log("incorect  answer ");
@@ -151,16 +127,15 @@ public class GameManager : MonoBehaviour
 
         }
 
+        Debug.Log(incrementor);
 
     }
 
-
     public void button2()
     {
-
          answer = 1;
 
-        if (MyList.ElementAt(1) == answer)
+        if (MyList.ElementAt(incrementor) == answer)
         {
 
             Debug.Log("good answer ");
@@ -168,22 +143,23 @@ public class GameManager : MonoBehaviour
 
         }
 
-        else if (MyList.ElementAt(1) != answer)
+        else if (MyList.ElementAt(incrementor) != answer)
         {
 
             Debug.Log("incorect  answer ");
             incrementor++;
 
         }
+
+        Debug.Log(incrementor);
 
     }
 
     public void button3()
     {
-
          answer = 2;
 
-        if (MyList.ElementAt(2) == answer)
+        if (MyList.ElementAt(incrementor) == answer)
         {
 
             Debug.Log("good answer ");
@@ -191,7 +167,9 @@ public class GameManager : MonoBehaviour
 
         }
 
-        else if (MyList.ElementAt(2) != answer)
+
+
+        else if (MyList.ElementAt(incrementor) != answer)
         {
 
             Debug.Log("incorect  answer ");
@@ -199,16 +177,16 @@ public class GameManager : MonoBehaviour
 
         }
 
-    }
+        Debug.Log(incrementor);
 
+    }
 
 
     public void button4()
     {
          answer = 3;
 
-
-        if (MyList.ElementAt(3) == answer)
+        if (MyList.ElementAt(incrementor) == answer)
         {
 
             Debug.Log("good answer ");
@@ -216,7 +194,7 @@ public class GameManager : MonoBehaviour
 
         }
 
-        else if (MyList.ElementAt(3) != answer)
+        else if (MyList.ElementAt(incrementor) != answer)
         {
 
             Debug.Log("incorect  answer ");
@@ -224,11 +202,8 @@ public class GameManager : MonoBehaviour
 
         }
 
+        Debug.Log(incrementor);
+
     }
-
-
-
-
-
 
 }

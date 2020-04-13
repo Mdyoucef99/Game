@@ -43,7 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 533fe0ca7735e564c90a6216cb367f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 0
+  panelformemory: {fileID: 0}
+  Score: 0
   scoreTx: {fileID: 5181802979988912677, guid: 5383912342fa2714db3e19d81cf84184, type: 3}
   spawners:
   - {fileID: 0}

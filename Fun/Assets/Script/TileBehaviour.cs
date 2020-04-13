@@ -12,7 +12,8 @@ public class TileBehaviour : MonoBehaviour
 
     void Start()
     {
-        
+
+       
 
     }
 
@@ -21,13 +22,12 @@ public class TileBehaviour : MonoBehaviour
     {
         transform.position += Vector3.down * speed * Time.deltaTime;
         
-
     }
 
     public void BehaviourTile()
     {   
-        code.AddPoints();
-        Destroy(gameObject);
+
+       
        
     }
 
