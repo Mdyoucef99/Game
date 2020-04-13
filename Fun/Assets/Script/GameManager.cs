@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     int answer = 0;
     int incrementor = 0;
 
+    public GameObject Endgamepanel;
+
+
     public static GameManager Instance 
     {
 
@@ -91,7 +94,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-
     public void StopTime()
     {
         panelformemory.SetActive(true);
@@ -99,9 +101,7 @@ public class GameManager : MonoBehaviour
 
         if (incrementor == 4) {
 
-            Time.timeScale = 1;
-
-            Debug.Log("Game is finished ");
+            Endgamepanel.SetActive(true);
 
         }
 

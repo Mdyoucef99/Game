@@ -25,9 +25,9 @@ public class TileBehaviour : MonoBehaviour
     }
 
     public void BehaviourTile()
-    {   
+    {
 
-       
+        Destroy(gameObject);
        
     }
 
