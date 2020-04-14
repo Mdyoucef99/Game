@@ -13,8 +13,6 @@ public class TileBehaviour : MonoBehaviour
     void Start()
     {
 
-       
-
     }
 
     // Update is called once per frame
@@ -26,8 +24,9 @@ public class TileBehaviour : MonoBehaviour
 
     public void BehaviourTile()
     {
-
+        code.PointsCalculator();
         Destroy(gameObject);
+
        
     }
 

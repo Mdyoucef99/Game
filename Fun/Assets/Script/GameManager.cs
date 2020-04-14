@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
 {
     public GameObject panelformemory;
     private static GameManager _instance;
-    private int HighScore;
-    public Text scoreTx;
+
+
+    public int Points;
     public Transform[] spawners;
     public GameObject tiles;
     public float bpm;
@@ -24,6 +25,14 @@ public class GameManager : MonoBehaviour
     int incrementor = 0;
 
     public GameObject Endgamepanel;
+
+
+
+
+
+    public Text scoreTx;
+    public Text highScore;
+
 
 
     public static GameManager Instance 
@@ -55,12 +64,17 @@ public class GameManager : MonoBehaviour
     {
         
         Debug.Log(incrementor);
+        scoreTx.text = Points.ToString();
+
+        highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+
 
     }
 
     void Update()
     {
         Spawn();
+        HighScoreCalculator();
     }
 
 
@@ -205,5 +219,27 @@ public class GameManager : MonoBehaviour
         Debug.Log(incrementor);
 
     }
+
+
+    public int  PointsCalculator() {
+
+       return Points++;
+    }
+
+    public void HighScoreCalculator() {
+
+        if (Points > PlayerPrefs.GetInt("HighScore", 0)) {
+
+            PlayerPrefs.SetInt("HighScore", Points);
+            highScore.text = Points.ToString();
+
+        }
+        
+
+    }
+
+
+
+
 
 }
