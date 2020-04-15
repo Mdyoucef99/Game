@@ -52,9 +52,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+
         if (incrementor == 4)
         {
-
+            panelformemory.SetActive(false);
             Endgamepanel.SetActive(true);
 
         }
