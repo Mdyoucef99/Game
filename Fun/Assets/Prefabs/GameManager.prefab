@@ -44,8 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelformemory: {fileID: 0}
-  Score: 0
-  scoreTx: {fileID: 5181802979988912677, guid: 5383912342fa2714db3e19d81cf84184, type: 3}
+  Points: 0
   spawners:
   - {fileID: 0}
   - {fileID: 0}
@@ -53,3 +52,6 @@ MonoBehaviour:
   - {fileID: 0}
   tiles: {fileID: 5567785899692328723, guid: cf1e956e95fd3a247b98f5bf4297dad1, type: 3}
   bpm: 0
+  Endgamepanel: {fileID: 0}
+  highScore: {fileID: 0}
+  Score: {fileID: 0}

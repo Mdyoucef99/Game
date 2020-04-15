@@ -5,39 +5,24 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class GameManager : MonoBehaviour
 {
     public GameObject panelformemory;
     private static GameManager _instance;
-
-
-    public int Points;
     public Transform[] spawners;
     public GameObject tiles;
     public float bpm;
     private float lastTime, deltaTime, timer;
-
     List<int> MyList = new List<int>();
-
-
     int answer = 0;
     int incrementor = 0;
-
     public GameObject Endgamepanel;
-
-
-
-
-
-    public Text scoreTx;
     public Text highScore;
-
+    public Text Score;
 
 
     public static GameManager Instance 
     {
-
         get
         {
             //create logic to create the instance 
@@ -56,28 +41,25 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-
+       
     }
-
 
     void Start()
     {
-        
         Debug.Log(incrementor);
-        scoreTx.text = Points.ToString();
-
-        highScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
-
 
     }
 
     void Update()
     {
+        if (incrementor == 4)
+        {
+
+            Endgamepanel.SetActive(true);
+
+        }
         Spawn();
-        HighScoreCalculator();
     }
-
-
 
     private void Spawn()
     {
@@ -112,12 +94,6 @@ public class GameManager : MonoBehaviour
     {
         panelformemory.SetActive(true);
         Time.timeScale = 0;
-
-        if (incrementor == 4) {
-
-            Endgamepanel.SetActive(true);
-
-        }
 
     }
 
@@ -181,8 +157,6 @@ public class GameManager : MonoBehaviour
 
         }
 
-
-
         else if (MyList.ElementAt(incrementor) != answer)
         {
 
@@ -190,11 +164,8 @@ public class GameManager : MonoBehaviour
             incrementor++;
 
         }
-
         Debug.Log(incrementor);
-
     }
-
 
     public void button4()
     {
@@ -215,31 +186,8 @@ public class GameManager : MonoBehaviour
             incrementor++;
 
         }
-
         Debug.Log(incrementor);
 
     }
-
-
-    public int  PointsCalculator() {
-
-       return Points++;
-    }
-
-    public void HighScoreCalculator() {
-
-        if (Points > PlayerPrefs.GetInt("HighScore", 0)) {
-
-            PlayerPrefs.SetInt("HighScore", Points);
-            highScore.text = Points.ToString();
-
-        }
-        
-
-    }
-
-
-
-
 
 }
