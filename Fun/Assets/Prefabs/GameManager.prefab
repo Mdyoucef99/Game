@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelformemory: {fileID: 0}
-  Points: 0
   spawners:
   - {fileID: 0}
   - {fileID: 0}
@@ -55,3 +54,4 @@ MonoBehaviour:
   Endgamepanel: {fileID: 0}
   highScore: {fileID: 0}
   Score: {fileID: 0}
+  points: 0

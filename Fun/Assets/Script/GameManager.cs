@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     public Text Score;
 
 
+    public int points = 0;
+
+
     public static GameManager Instance 
     {
         get
@@ -60,6 +63,9 @@ public class GameManager : MonoBehaviour
 
         }
         Spawn();
+
+        Score.text = points.ToString();
+
     }
 
     private void Spawn()
@@ -90,6 +96,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
 
     public void StopTime()
     {
